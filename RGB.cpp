@@ -43,10 +43,9 @@ int main() {
     cin >> rgb.R >> rgb.G >> rgb.B;
 
     // Input validation
-    if (rgb.R < 0 || rgb.R > 255 || rgb.G < 0 || rgb.G > 255 || rgb.B < 0 || rgb.B > 255) {
+    if (rgb.R < 0 || rgb.R > 255 || rgb.G < 0 || rgb.G > 255 || rgb.B < 0 || rgb.B > 255) 
         cout << "Invalid input! RGB values must be in the range [0, 255]." << endl;
-        return 1;
-    }
+    
 
     // Convert RGB to YUV
     YUV yuv = rgbToYuv(rgb);
