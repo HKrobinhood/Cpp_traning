@@ -23,7 +23,7 @@ int main(){
             i=i+1;
         }
         else{
-            j=j+1;
+            j=j-1;
         }
     }
     return 0;
