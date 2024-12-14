@@ -26,5 +26,6 @@ int main(){
             j=j-1;
         }
     }
+    cout<<"no finding"<<endl;
     return 0;
 }
