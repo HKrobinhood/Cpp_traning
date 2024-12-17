@@ -8,11 +8,11 @@ int main()
     int a;
     cout<<"Input a integer:";
     cin>>a;
-    int* arr= new int[a] ();
+    int* arr= new int[a] ();//堆区数组声明
         for(int i=0;i<a;i++){
             cout << "Value: " << arr[i] << " Address: " << (long long) &arr[i] << endl;
         }
-    delete []arr;
+    delete []arr;//堆区数组释放
     
     
     vector <float> v (a);
