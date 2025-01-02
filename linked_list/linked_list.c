@@ -1,5 +1,7 @@
 /*author:SC
-description: implementation basic function of linked list including Head insertion node*/
+description: implementation basic function of linked list including 
+Head insertion node, tail insertion node
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,11 +13,28 @@ struct node {
 
 struct node* head = NULL;    //define a empty ptr head
 
-void insert(int x){
+void insertHead(int x){
     struct node* temp=(struct node*)malloc(sizeof(struct node));   //apply for a address
     temp->val=x;
     temp->next=head;
     head = temp;
+}
+
+void insertTail(int x){
+    struct node*temp = (struct node*)malloc(sizeof(struct node));
+    temp->val = x;
+    temp->next = NULL;
+    
+    if(head==NULL)
+        head = temp;
+    else{
+        struct node* current = head;
+        while(current->next!=NULL){
+            current=current->next;
+        }
+    current ->next = temp;
+    }
+    
 }
 
 void print(){
@@ -35,8 +54,13 @@ int main(){
     for (i=0;i<n;i++){
         printf("Enter the numbers\n");
         scanf("%d",&x);
-        insert(x);
-        print();
+        //insertHead(x);
+
+        insertTail(x);
+        print();  
     }
+
+
+    
     
 }
