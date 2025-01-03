@@ -28,12 +28,38 @@ void insertTail(int x){
     if(head==NULL)
         head = temp;
     else{
-        struct node* current = head;
+        struct node* current = head; //define a ptr variable to traverse the list
         while(current->next!=NULL){
             current=current->next;
         }
     current ->next = temp;
     }
+    
+}
+
+void insertposition(int x, int n){
+    struct node* temp=(struct node*)malloc(sizeof(struct node));
+        temp->val = x;
+        temp->next = NULL;
+    if (n == 1){
+        temp->val=x;
+        temp->next=head;
+        head = temp;
+        return;
+    }
+    
+    struct node* current = head;
+    for(int i = 1; i<n-1; i++){
+        if(current == NULL){
+            printf("out of range\n");
+            free(temp);
+            return;
+        }
+        current = current ->next;
+    }
+    
+    temp->next=current->next;
+    current->next = temp;
     
 }
 
@@ -48,17 +74,23 @@ void print(){
 }
 
 int main(){
-    int x,n,i;
-    printf("How many numbers?\n");
-    scanf("%d",&n);
-    for (i=0;i<n;i++){
-        printf("Enter the numbers\n");
-        scanf("%d",&x);
-        //insertHead(x);
+    // int x,n,i;
+    // printf("How many numbers?\n");
+    // scanf("%d",&n);
+    // for (i=0;i<n;i++){
+    //     printf("Enter the numbers\n");
+    //     scanf("%d",&x);
+    //     //insertHead(x);
 
-        insertTail(x);
-        print();  
-    }
+    //     insertTail(x);
+    //     print();  
+    // }
+        insertHead(5);
+        insertHead(6);
+        insertHead(8);
+        insertposition(4, 1);
+        insertposition(7, 5);
+        print();
 
 
     
