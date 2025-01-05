@@ -1,6 +1,6 @@
 /*author:SC
 description: implementation basic function of linked list including 
-Head insertion node, tail insertion node
+Head insertion node, tail insertion node, insert node at a specific position, print the list
 */
 
 #include <stdio.h>
@@ -49,7 +49,7 @@ void insertposition(int x, int n){
     }
     
     struct node* current = head;
-    for(int i = 1; i<n-1; i++){
+    for(int i = 0; i<n-2; i++){
         if(current == NULL){
             printf("out of range\n");
             free(temp);
@@ -58,7 +58,7 @@ void insertposition(int x, int n){
         current = current ->next;
     }
     
-    temp->next=current->next;
+    temp->next = current->next;
     current->next = temp;
     
 }
@@ -72,6 +72,37 @@ void print(){
     }
     printf("\n");
 }
+
+void deletepositon(int n){
+    struct node* current = head;
+
+    if(n == 1){
+        head = current -> next;
+        free(current);
+        return;
+    }
+    
+    for(int i = 0; i<n-2; i++){
+        if(current == NULL){
+            printf("out of range\n");
+            return;
+        }
+        current = current -> next;
+    }
+
+    if (current == NULL || current->next == NULL) {
+        printf("Position out of range\n");
+        return;
+    }
+
+    // 保存要删除的节点
+    struct node* temp = current->next;
+    current->next = current->next->next;  // 更新前驱节点的 next
+    free(temp);  // 释放要删除的节点
+
+
+}
+
 
 int main(){
     // int x,n,i;
@@ -88,8 +119,10 @@ int main(){
         insertHead(5);
         insertHead(6);
         insertHead(8);
-        insertposition(4, 1);
-        insertposition(7, 5);
+        //insertposition(4, 1);
+        insertposition(7, 2);
+
+        //deletepositon(6);
         print();
 
 
