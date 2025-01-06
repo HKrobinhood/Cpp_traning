@@ -1,6 +1,7 @@
 /*author:SC
 description: implementation basic function of linked list including 
-Head insertion node, tail insertion node, insert node at a specific position, print the list
+Head insertion node, tail insertion node, insert node at a specific position,
+delete the node at a specific position, print the list
 */
 
 #include <stdio.h>
@@ -37,31 +38,7 @@ void insertTail(int x){
     
 }
 
-void insertposition(int x, int n){
-    struct node* temp=(struct node*)malloc(sizeof(struct node));
-        temp->val = x;
-        temp->next = NULL;
-    if (n == 1){
-        temp->val=x;
-        temp->next=head;
-        head = temp;
-        return;
-    }
-    
-    struct node* current = head;
-    for(int i = 0; i<n-2; i++){
-        if(current == NULL){
-            printf("out of range\n");
-            free(temp);
-            return;
-        }
-        current = current ->next;
-    }
-    
-    temp->next = current->next;
-    current->next = temp;
-    
-}
+
 
 void print(){
     struct node* temp =head;
