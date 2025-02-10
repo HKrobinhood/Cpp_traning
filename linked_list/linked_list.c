@@ -97,7 +97,7 @@ int main(){
         insertHead(6);
         insertHead(8);
         //insertposition(4, 1);
-        insertposition(7, 2);
+        //insertposition(7, 2);
 
         //deletepositon(6);
         print();
